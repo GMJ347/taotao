@@ -1,4 +1,4 @@
-package cn.gmj.taotao.pojo;
+package cn.gmj.taotao.item.common.pojo;
 
 public class Category {
     private Long id;

@@ -1,9 +1,8 @@
-package cn.gmj.taotao.web;
+package cn.gmj.taotao.item.web;
 
-import cn.gmj.taotao.pojo.Category;
-import cn.gmj.taotao.service.CategoryService;
+import cn.gmj.taotao.item.common.pojo.Category;
+import cn.gmj.taotao.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;

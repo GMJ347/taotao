@@ -1,6 +1,6 @@
-package cn.gmj.taotao.mapper;
+package cn.gmj.taotao.item.mapper;
 
-import cn.gmj.taotao.pojo.Category;
+import cn.gmj.taotao.item.common.pojo.Category;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 

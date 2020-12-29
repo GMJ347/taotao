@@ -1,4 +1,4 @@
-package cn.gmj.taotao;
+package cn.gmj.taotao.item;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@MapperScan("cn.gmj.taotao.mapper")
+@MapperScan("cn.gmj.taotao.item.mapper")
 public class ItemApplication {
     public static void main(String[] args) {
         SpringApplication.run(ItemApplication.class);

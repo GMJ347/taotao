@@ -1,8 +1,8 @@
-package cn.gmj.taotao.service.impl;
+package cn.gmj.taotao.item.service.impl;
 
-import cn.gmj.taotao.mapper.CategoryMapper;
-import cn.gmj.taotao.pojo.Category;
-import cn.gmj.taotao.service.CategoryService;
+import cn.gmj.taotao.item.common.pojo.Category;
+import cn.gmj.taotao.item.mapper.CategoryMapper;
+import cn.gmj.taotao.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

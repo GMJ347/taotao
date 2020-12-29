@@ -1,4 +1,4 @@
-package cn.gmj.taotao.config;
+package cn.gmj.taotao.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

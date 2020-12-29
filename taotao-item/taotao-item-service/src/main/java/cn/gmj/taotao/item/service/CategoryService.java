@@ -1,6 +1,6 @@
-package cn.gmj.taotao.service;
+package cn.gmj.taotao.item.service;
 
-import cn.gmj.taotao.pojo.Category;
+import cn.gmj.taotao.item.common.pojo.Category;
 
 import java.util.List;
 
