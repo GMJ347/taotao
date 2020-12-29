@@ -12,4 +12,8 @@ eureka:
     service-url:
       defaultZone: http://localhost:10086/eureka
   instance:
-    lease-expiration-duration-in-seconds: 15
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
