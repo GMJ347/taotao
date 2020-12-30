@@ -12,6 +12,7 @@
         <module>taotao-gateway</module>
         <module>taotao-item</module>
         <module>taotao-common</module>
+        <module>taotao-upload</module>
     </modules>
     <packaging>pom</packaging>
 

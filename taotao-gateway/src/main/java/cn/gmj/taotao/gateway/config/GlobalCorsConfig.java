@@ -18,6 +18,7 @@ public class GlobalCorsConfig {
         configuration.addAllowedMethod("PUT");
         configuration.addAllowedMethod("GET");
         configuration.addAllowedMethod("POST");
+        configuration.addAllowedMethod("DELETE");
         configuration.addAllowedHeader("*");
         // 配置拦截路径
         UrlBasedCorsConfigurationSource configurationSource = new UrlBasedCorsConfigurationSource();

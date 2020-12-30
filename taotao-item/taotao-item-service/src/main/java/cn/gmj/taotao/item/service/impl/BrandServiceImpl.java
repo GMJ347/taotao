@@ -9,6 +9,7 @@ import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -39,5 +40,23 @@ public class BrandServiceImpl implements BrandService {
         PageInfo<Brand> info = new PageInfo<>(list);
 
         return new PageResult<Brand>(info.getTotal(), list);
+    }
+
+    @Override
+    @Transactional
+    public void saveBrand(Brand brand, List<Long> cids) {
+        brand.setId(null);
+        this.brandMapper.insert(brand);
+        for (Long cid : cids) {
+            // 这里brand在写入数据库后，自增长的主键会自动回写入brand opjo
+            this.brandMapper.insertCategoryBrand(cid, brand.getId());
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteBrand(Long bid) {
+        this.brandMapper.deleteByPrimaryKey(bid);
+        this.brandMapper.deleteByBrandIdInCategoryBrand(bid);
     }
 }
