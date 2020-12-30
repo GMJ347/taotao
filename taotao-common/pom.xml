@@ -12,5 +12,14 @@
     <groupId>cn.gmj.common</groupId>
     <artifactId>taotao-common</artifactId>
 
+    <dependencies>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+
 
 </project>

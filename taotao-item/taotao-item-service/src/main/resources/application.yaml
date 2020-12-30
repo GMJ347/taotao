@@ -17,3 +17,4 @@ eureka:
 mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

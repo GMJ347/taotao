@@ -13,6 +13,11 @@ public class PageResult<T> {
         this.items = items;
     }
 
+    public PageResult(Long total, List<T> items) {
+        this.total = total;
+        this.items = items;
+    }
+
     public PageResult() {
     }
 

@@ -11,7 +11,6 @@
         <module>taotao-registry</module>
         <module>taotao-gateway</module>
         <module>taotao-item</module>
-        <module>taotao-item-service</module>
         <module>taotao-common</module>
     </modules>
     <packaging>pom</packaging>
