@@ -1,9 +1,15 @@
 package cn.gmj.taotao.upload.service.impl;
 
+import cn.gmj.taotao.upload.config.UploadProperties;
 import cn.gmj.taotao.upload.controller.UploadController;
 import cn.gmj.taotao.upload.service.UploadService;
+import com.github.tobato.fastdfs.domain.StorePath;
+import com.github.tobato.fastdfs.service.FastFileStorageClient;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -16,16 +22,19 @@ import java.util.List;
 
 
 @Service
+@EnableConfigurationProperties(UploadProperties.class)
 public class UploadServiceImpl implements UploadService {
 
+    @Autowired private FastFileStorageClient fastFileStorageClient;
+    @Autowired private UploadProperties prop;
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
-    private static final List<String> IMAGE_TYPE = Arrays.asList("image/jpeg", "image/gif", "image/png", "image/bmp");
 
     @Override
     public String imageUpload(MultipartFile file) {
+        String filename = file.getOriginalFilename();
         // 校验文件类型
         String contentType = file.getContentType();
-        if (!IMAGE_TYPE.contains(contentType)) {
+        if (!prop.getAllowTypes().contains(contentType)) {
             logger.info("上传失败，文件类型不匹配：{}", contentType);
             return null;
         }
@@ -41,14 +50,17 @@ public class UploadServiceImpl implements UploadService {
             return null;
         }
 
-        // 保存到本地
+        // 保存到FastDFS
+        //  String extension = filename.substring(filename.lastIndexOf(".")+1);
+        String extension = StringUtils.substringAfterLast(filename, ".");
         try {
-            file.transferTo(new File("F:\\taotao\\image\\"+file.getOriginalFilename()));
-            return "http://image.taota.com/" + file.getOriginalFilename();
+            StorePath storePath = fastFileStorageClient.uploadFile(file.getInputStream(), file.getSize(), extension, null);
+            return prop.getBaseUrl() + storePath.getFullPath();
         } catch (IOException e) {
-            logger.info("服务器内部错误");
+            logger.error("上传文件失败！", e);
             e.printStackTrace();
-            return null;
         }
+
+        return null;
     }
 }

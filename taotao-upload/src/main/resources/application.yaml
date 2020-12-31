@@ -14,3 +14,20 @@ eureka:
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
     lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+# FastDFS
+fdfs:
+  connect-timeout: 600
+  so-timeout: 2500
+  thumb-image:
+    height: 60
+    width: 60
+  tracker-list:
+    - 192.168.88.128:22122
+taotao:
+  upload:
+    baseUrl: http://image.taotao.com/
+    allowTypes:
+      - image/jpeg
+      - image/gif
+      - image/png
+      - image/bmp

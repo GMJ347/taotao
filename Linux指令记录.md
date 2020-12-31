@@ -22,7 +22,7 @@
 - tar xvf nginx.tar.gz
 - rm -rf nginx.tar.gz
 - ./configure --prefix=/opt/nginx --sbin-path=/user/bin/nginx
-- make &&ngi make install
+- make && make install
 - cd /user/bin
 - ./nginx
 - ps -ef | grep nginx
@@ -44,6 +44,21 @@
 - ./nginx -s reload
 - service iptables stop 关闭防火墙
 
+### FastDFS
 
+- ll /etc/init.d/ | grep fdfs
+- cd /etc/fdfs
+- cp tracker.conf.sample tracker.conf
+- vim tracker.conf
+- mkdir -p /taotao/fdfs/tracker
+- /etc/init.d/fdfs_trackered start
+- cp storage.conf.sample storage.conf
+- vim storage.conf
+- mkdir -p /taotao/fdfs/stroage
+- /etc/init.d/fdfs_storaged start
+- cp client.conf.sample client.conf
+- vim client.conf
+- /usr/bin/fdfs_upload_file client.conf /tmp/1.png
+- pkill -9 fdfs
 
 
