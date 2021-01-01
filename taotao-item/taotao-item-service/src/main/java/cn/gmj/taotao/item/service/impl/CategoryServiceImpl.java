@@ -19,4 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
         category.setParentId(pid);
         return categoryMapper.select(category);
     }
+
+    @Override
+    public List<Category> queryCategoriesByCids(List<Long> cids) {
+        return categoryMapper.selectByIdList(cids);
+    }
 }

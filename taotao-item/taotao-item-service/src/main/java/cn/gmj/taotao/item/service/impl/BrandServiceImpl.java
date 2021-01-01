@@ -43,6 +43,11 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
+    public List<Brand> queryBrandByCid(Long cid) {
+        return brandMapper.queryByCategoryId(cid);
+    }
+
+    @Override
     @Transactional
     public void saveBrand(Brand brand, List<Long> cids) {
         brand.setId(null);
@@ -58,5 +63,10 @@ public class BrandServiceImpl implements BrandService {
     public void deleteBrand(Long bid) {
         this.brandMapper.deleteByPrimaryKey(bid);
         this.brandMapper.deleteByBrandIdInCategoryBrand(bid);
+    }
+
+    @Override
+    public Brand queryById(Long bid) {
+        return brandMapper.selectByPrimaryKey(bid);
     }
 }

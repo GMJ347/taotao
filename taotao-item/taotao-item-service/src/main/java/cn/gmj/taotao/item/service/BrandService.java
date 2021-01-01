@@ -31,4 +31,18 @@ public interface BrandService {
      * @param bid
      */
     void deleteBrand(Long bid);
+
+    /**
+     * 根据BrandId查询Brand
+     * @param bid
+     * @return
+     */
+    Brand queryById(Long bid);
+
+    /**
+     * 根据CategoryId查询brand
+     * @param cid
+     * @return
+     */
+    List<Brand> queryBrandByCid(Long cid);
 }

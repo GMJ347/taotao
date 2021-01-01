@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 /**
@@ -38,6 +39,16 @@ public class BrandController {
             @RequestParam(value="key", required=false) String key
     ) {
         return ResponseEntity.ok(brandService.queryBrandByPage(page, rows, desc, sortBy, key));
+    }
+
+    /**
+     * 根据分类id查询brand
+     * @param cid
+     * @return
+     */
+    @GetMapping("/cid/{cid}")
+    public ResponseEntity<List<Brand>> queryBrandByCid(@PathVariable("cid") Long cid) {
+        return ResponseEntity.ok(brandService.queryBrandByCid(cid));
     }
 
     /**
