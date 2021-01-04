@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.util.List;
 
 /**
@@ -72,6 +71,21 @@ public class BrandController {
     public ResponseEntity<Void> deleteBrand(@PathVariable("bid") String bid) {
         brandService.deleteBrand(Long.parseLong(bid));
         return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    /**
+     * 根据品牌id查询品牌
+     * @param bid
+     * @return
+     */
+    @GetMapping("{bid}")
+    public ResponseEntity<Brand> queryBrandByBid(@PathVariable("bid") Long bid) {
+        return ResponseEntity.ok(brandService.queryById(bid));
+    }
+
+    @GetMapping("/ids")
+    public ResponseEntity<List<Brand>> queryBrandByBids(@RequestParam("ids") List<Long> bids) {
+        return ResponseEntity.ok(brandService.queryByIds(bids));
     }
 
 }

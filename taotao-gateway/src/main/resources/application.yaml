@@ -14,6 +14,10 @@ zuul:
       path: /upload/**
       serviceId: upload-service
       strip-prefix: false
+    search-service:
+      path: /search/**
+      serviceId: search-service
+      strip-prefix: false
 
   prefix: /api
 # 设置日志级别为DEBUG，并在访问路径上添加debug=true

@@ -41,4 +41,12 @@ public class CategoryController {
         return ResponseEntity.ok(categories);
     }
 
+    /**
+     * 根据分类id查询分类
+     */
+    @GetMapping("/list/cids")
+    public ResponseEntity<List<Category>> queryCategoryByCids(@RequestParam("cids")List<Long> cids) {
+        return ResponseEntity.ok(categoryService.queryCategoriesByCids(cids));
+    }
+
 }

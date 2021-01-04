@@ -13,6 +13,7 @@
         <module>taotao-item</module>
         <module>taotao-common</module>
         <module>taotao-upload</module>
+        <module>taotao-search</module>
     </modules>
     <packaging>pom</packaging>
 

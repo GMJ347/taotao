@@ -13,6 +13,7 @@ public class GlobalCorsConfig {
         // 添加Cors配置信息
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://manage.taotao.com");
+        configuration.addAllowedOrigin("http://www.taotao.com");
         configuration.setAllowCredentials(true);
         configuration.addAllowedMethod("HEAD");
         configuration.addAllowedMethod("PUT");

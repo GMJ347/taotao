@@ -45,4 +45,6 @@ public interface BrandService {
      * @return
      */
     List<Brand> queryBrandByCid(Long cid);
+
+    List<Brand> queryByIds(List<Long> bids);
 }
