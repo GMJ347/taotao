@@ -1,5 +1,6 @@
 package cn.gmj.taotao.item.common.api;
 
+import cn.gmj.taotao.item.common.pojo.SpecGroup;
 import cn.gmj.taotao.item.common.pojo.SpecParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,4 +21,7 @@ public interface SpecificationApi {
             @RequestParam(value="cid", required=false) Long cid,
             @RequestParam(value="searching", required=false) Boolean searching
     );
+
+    @GetMapping("/spec/group")
+    List<SpecGroup> queryListByCid(@RequestParam("cid") Long cid);
 }

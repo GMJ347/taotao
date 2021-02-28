@@ -2,10 +2,8 @@ package cn.gmj.taotao.item.common.pojo;
 
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Table(name="tb_spec_group")
@@ -17,5 +15,8 @@ public class SpecGroup {
     private Long cid;
 
     private String name;
+
+    @Transient
+    private List<SpecParam> params;
 
 }

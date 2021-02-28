@@ -203,6 +203,8 @@ public class SearchService {
         Map<String, String> filter = searchRequest.getFilter();
         for (Map.Entry<String, String> entry : filter.entrySet()) {
             String key = entry.getKey();
+            key = (key == "品牌") ? "brandId" : key;
+            key = (key == "分类") ? "cid3" : key;
             if (!"cid3".equals(key) && !"brandId".equals(key)) {
                 key = "specs." + key + ".keyword";
             }

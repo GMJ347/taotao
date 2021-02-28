@@ -23,6 +23,7 @@ fdfs:
     width: 60
   tracker-list:
     - 192.168.88.128:22122
+
 taotao:
   upload:
     baseUrl: http://image.taotao.com/

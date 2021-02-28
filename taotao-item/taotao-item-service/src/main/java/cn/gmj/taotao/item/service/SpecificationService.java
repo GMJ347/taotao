@@ -20,4 +20,11 @@ public interface SpecificationService {
      * @return
      */
     List<SpecParam> queryParamList(Long gid, Long cid, Boolean searching);
+
+    /**
+     * 根据分类id查询规格组级组内规格
+     * @param cid
+     * @return
+     */
+    List<SpecGroup> queryListByCid(Long cid);
 }

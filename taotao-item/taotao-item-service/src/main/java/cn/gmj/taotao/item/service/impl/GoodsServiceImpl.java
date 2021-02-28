@@ -164,4 +164,12 @@ public class GoodsServiceImpl implements GoodsService {
         this.spuMapper.updateByPrimaryKeySelective(spu);
         this.spuDetailMapper.updateByPrimaryKeySelective(spu.getSpuDetail());
     }
+
+    @Override
+    public Spu querySpuById(Long id) {
+        Spu spu = spuMapper.selectByPrimaryKey(id);
+        spu.setSkus(querySkusBySpuId(id));
+        spu.setSpuDetail(querySpuDetailBySpuId(id));
+        return spu;
+    }
 }
