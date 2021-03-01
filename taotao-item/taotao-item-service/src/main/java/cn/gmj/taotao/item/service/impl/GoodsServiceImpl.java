@@ -11,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import com.netflix.discovery.converters.Auto;
 import org.apache.commons.lang.StringUtils;
 import org.omg.SendingContext.RunTime;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,6 +44,9 @@ public class GoodsServiceImpl implements GoodsService {
 
     @Autowired
     private BrandService brandService;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public PageResult<Spu> querySpuByPage(Integer page, Integer rows, Boolean saleable, String key) {
@@ -99,6 +103,9 @@ public class GoodsServiceImpl implements GoodsService {
             throw new RuntimeException("商品详情创建失败");
         }
         saveSkuAndStock(spu);
+        // 发送mq消息
+        amqpTemplate.convertAndSend("item.insert", spu.getId());
+
     }
 
     private void saveSkuAndStock(Spu spu) {
@@ -163,6 +170,8 @@ public class GoodsServiceImpl implements GoodsService {
         spu.setSaleable(null);
         this.spuMapper.updateByPrimaryKeySelective(spu);
         this.spuDetailMapper.updateByPrimaryKeySelective(spu.getSpuDetail());
+        // 发送mq消息
+        amqpTemplate.convertAndSend("item.update", spu.getId());
     }
 
     @Override

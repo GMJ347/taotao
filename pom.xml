@@ -15,6 +15,7 @@
         <module>taotao-upload</module>
         <module>taotao-search</module>
         <module>taotao-page</module>
+        <module>taotao-user</module>
     </modules>
     <packaging>pom</packaging>
 

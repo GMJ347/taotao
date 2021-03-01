@@ -260,4 +260,14 @@ public class SearchService {
             return null;
         }
     }
+
+    public void createOrUpdateItem(Long spuId) {
+        Spu spu = goodsClient.querySpuById(spuId);
+        Goods goods = buildGoods(spu);
+        goodsRepository.save(goods);
+    }
+
+    public void deleteItem(Long spuId) {
+        goodsRepository.deleteById(spuId);
+    }
 }

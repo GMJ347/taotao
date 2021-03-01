@@ -71,6 +71,9 @@ public class PageServiceImpl implements PageService {
         Context context = new Context();
         context.setVariables(loadModel(spuId));
         File dest = new File("G:\\shoppingWeb\\code\\upload", spuId + ".html");
+        if (dest.exists()) {
+            dest.delete();
+        }
         try {
             PrintWriter writer = new PrintWriter(dest, "utf-8");
             templateEngine.process("item", context, writer);
@@ -78,5 +81,11 @@ public class PageServiceImpl implements PageService {
             e.printStackTrace();
             log.error("生成静态页面异常", e);
         }
+    }
+
+    @Override
+    public void deleteHtml(Long spuId) {
+        File dest = new File("G:\\shoppingWeb\\code\\upload", spuId + ".html");
+        if (dest.exists()) dest.delete();
     }
 }
