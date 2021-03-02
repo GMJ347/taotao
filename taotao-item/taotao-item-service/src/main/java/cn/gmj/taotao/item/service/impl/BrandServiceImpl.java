@@ -7,6 +7,8 @@ import cn.gmj.taotao.item.service.BrandService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import java.util.List;
 
 @Service
 public class BrandServiceImpl implements BrandService {
+
     @Autowired
     private BrandMapper brandMapper;
 

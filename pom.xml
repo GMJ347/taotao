@@ -16,6 +16,10 @@
         <module>taotao-search</module>
         <module>taotao-page</module>
         <module>taotao-user</module>
+        <module>taotao-user-service</module>
+        <module>taotao-user-service</module>
+        <module>taotao-sms</module>
+        <module>taotao-auth</module>
     </modules>
     <packaging>pom</packaging>
 

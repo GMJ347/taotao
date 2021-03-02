@@ -9,12 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>taotao-user</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>taotao-user-interface</module>
-        <module>taotao-user-service</module>
-    </modules>
+    <groupId>cn.gmj.taotao.auth</groupId>
+    <artifactId>taotao-auth</artifactId>
 
 
 </project>
